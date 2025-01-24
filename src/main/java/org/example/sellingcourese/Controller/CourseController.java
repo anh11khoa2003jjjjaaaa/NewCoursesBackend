@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin("https://course-ui.vercel.app")
+@CrossOrigin("https://course-ui-n6js.vercel.app")
 @RequestMapping("/public/courses")
 public class CourseController {
     private static final Logger log = LoggerFactory.getLogger(CourseController.class);
