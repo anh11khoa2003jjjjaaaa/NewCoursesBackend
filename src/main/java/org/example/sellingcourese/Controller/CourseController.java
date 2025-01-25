@@ -157,4 +157,18 @@ public class CourseController {
         return ResponseEntity.ok(approvedCourses);
 
     }
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<?> getCoursesByCategoryId(@PathVariable Long categoryId) {
+        try {
+            // Gọi service để lấy danh sách khóa học
+            List<Course> courses = courseService.findCoursesByCategoryId(categoryId);
+            return ResponseEntity.ok(courses); // Trả về danh sách khóa học
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage()); // Trả về lỗi 400 nếu categoryId không hợp lệ
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build(); // Trả về lỗi 404 nếu không tìm thấy khóa học
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Đã xảy ra lỗi khi xử lý yêu cầu"); // Trả về lỗi 500 nếu có lỗi khác
+        }
+    }
 }

@@ -293,7 +293,22 @@ public class CourseService {
     }
 
 
+    public List<Course> findCoursesByCategoryId(Long categoryId) {
+        // Kiểm tra categoryId có hợp lệ không
+        if (categoryId == null || categoryId <= 0) {
+            throw new IllegalArgumentException("Category ID không hợp lệ");
+        }
 
+        // Tìm kiếm khóa học theo categoryId
+        List<Course> courses = courseRepository.findByCategoryId(categoryId);
+
+        // Kiểm tra danh sách khóa học có rỗng không
+        if (courses.isEmpty()) {
+            throw new RuntimeException("Không tìm thấy khóa học nào cho danh mục này");
+        }
+
+        return courses;
+    }
 
 }
 
