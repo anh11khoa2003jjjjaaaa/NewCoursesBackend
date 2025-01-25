@@ -83,18 +83,7 @@ public class CheckoutVNpayController {
         return vnpayUrl; // Trả về URL thanh toán trực tiếp
     }
 
-//    @GetMapping("/vnpay-payment")
-//    public void getMapping(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        int paymentStatus = vnPayService.orderReturn(request);
-//
-//        if (paymentStatus == 1) {
-//            response.sendRedirect("http://localhost:3000/home");
-//            Order order=new Order();
-//            order.setStatusId(3L);// Chuyển hướng về trang chủ sau khi thanh toán thành công
-//        } else {
-//            response.sendRedirect("http://localhost:3000/orderfail"); // Chuyển hướng về trang thất bại nếu thanh toán không thành công
-//        }
-//    }
+
 @GetMapping("/vnpay-payment")
 public void getMapping(HttpServletRequest request, HttpServletResponse response) throws IOException {
     int paymentStatus = vnPayService.orderReturn(request);

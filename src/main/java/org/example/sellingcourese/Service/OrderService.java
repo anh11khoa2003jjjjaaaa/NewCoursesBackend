@@ -64,7 +64,7 @@ public class OrderService {
         Order order = new Order();
         order.setUserId(orderDTO.getUserId());
         order.setTotalPrice(orderDTO.getTotalPrice());
-        order.setStatusId(2L);
+        order.setStatusId(3L);
 
         Order savedOrder = orderRepository.save(order);
 
